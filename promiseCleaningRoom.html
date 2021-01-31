@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean The Room</title>
+</head>
+<body>
+  <script>
+      let promiseToCleanTheRoom = new Promise((resolve,reject) => {
+        // Cleaning the room
+        let isClean = false;
+
+        if (isClean) {
+            resolve('Clean جانم')
+        } else {
+            reject('not Clean جانم')
+        }
+
+      });
+
+      promiseToCleanTheRoom.then((r) => {
+          console.log('The room is ' + r );
+      }).catch((r) =>{
+          console.log('The room is ' + r);
+      })
+  </script>  
+</body>
+</html>

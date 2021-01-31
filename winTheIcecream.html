@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win the Icecream</title>
+</head>
+<body>
+    <Script>
+        let CleanRoom = () => {
+            return new Promise((resolve,reject) => {
+            resolve('Cleaned The Room');
+        })
+        };
+
+        let removeGarbage = (message) => {
+            return new Promise((resolve,reject) => {
+            resolve(message + ' remove Garbage');
+        });
+        };
+        let winIcecream = (message) => {
+            return new Promise((resolve,reject) => {
+            resolve(message + ' won Icecream');
+        });
+        };   
+
+        CleanRoom().then((result) => {
+            return removeGarbage(result); 
+        }).then((result)=> {
+            return winIcecream(result);
+        }).then((result)=> {
+            console.log('finished' + result);
+        });
+
+        Promise.all([CleanRoom(), removeGarbage(), winIcecream()]).then(() => {
+            console.log('all finished');
+        });
+
+        Promise.race([CleanRoom(), removeGarbage(), winIcecream()]).then(() => {
+            console.log('one of them is finished');
+        });
+        setTimeout(()=> {
+            console.log('a');
+        }, 0)
+        console.log('bs');
+        console.log('cs');
+    </Script>
+
+</body>
+</html>
